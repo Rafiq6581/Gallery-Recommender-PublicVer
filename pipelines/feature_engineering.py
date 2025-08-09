@@ -1,0 +1,17 @@
+from zenml import pipeline 
+
+from steps import feature_engineering as fe_steps
+
+
+@pipeline
+def feature_engineering(wait_for: str | list[str] | None=None) -> list[str]:
+    raw_documents = fe_steps.query_data_warehouse(after=wait_for)
+    
+    cleaned_documents = fe_steps.clean_data(raw_documents)
+    last_step_1 = fe_steps.load_to_vector_db(cleaned_documents)
+
+    embedded_documents = fe_steps.embed_data(cleaned_documents)
+    last_step_2 = fe_steps.load_to_vector_db(embedded_documents)
+
+    return [last_step_1.invocation_id, last_step_2.invocation_id]
+    

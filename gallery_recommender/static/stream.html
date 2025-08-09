@@ -1,0 +1,24 @@
+<!-- static/stream.html -->
+<!DOCTYPE html>
+<html>
+  <body>
+    <h1>RAG Stream Demo</h1>
+    <pre id="out"></pre>
+    <script>
+      const out = document.getElementById("out");
+      // hard-code the query + filters here or read from URL params
+      const payload = JSON.stringify({
+        query: "I wish to visit an art exhibition…",
+        filters: { area: "GINZA" }
+      });
+      const evtSrc = new EventSource("/rag/stream?"+new URLSearchParams({payload}));
+      evtSrc.onmessage = e => {
+        out.textContent += e.data;
+      };
+      evtSrc.onerror = e => {
+        console.error("Stream error:", e);
+        evtSrc.close();
+      };
+    </script>
+  </body>
+</html>

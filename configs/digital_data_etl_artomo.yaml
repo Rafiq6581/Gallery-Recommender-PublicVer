@@ -1,0 +1,15 @@
+settings:
+  docker:
+    parent_image: str
+    skip_build: True
+  orchestrator.sagemaker:
+    synchronous: false
+
+
+
+parameters:
+    links: 
+      - # insert link to data here
+    reflections: false
+    collection_names:
+      - # insert collection names 
