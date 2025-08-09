@@ -7,7 +7,7 @@ AI-powered art gallery recommendation app that curates free art exhibitions base
 ---
 
 ## 📸 Preview
-![Artomo Screenshot](docs/images/homepage.png)
+![Artomo Screenshot](github-media/artomo_article_image.png)
 ![Recommendation Flow](github-media/artomo-walkthrough.gif)
 
 ---
