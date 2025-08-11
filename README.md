@@ -3,9 +3,8 @@ An AI-powered gallery recommendation system that curates art exhibitions based o
 
 > **Note:** This is a demonstration version of a production ML system. Some configurations and business logic have been simplified for public sharing.
 
----
-
-## 📸 Watch the walkthrough
+![Artomo article image](github-media/artomo_article_image.png)
+## 🎥 Watch the walkthrough!👇
 [![Watch the walkthrough!](https://img.youtube.com/vi/ZFtNlTuYH44/hqdefault.jpg)](https://youtube.com/shorts/ZFtNlTuYH44?feature=share)
 
 ---
@@ -135,16 +134,23 @@ This project follows **Domain-Driven Design** and **Clean Architecture** princip
 - **Infrastructure Layer**: External integrations and persistence
 - **Clean Dependencies**: Dependency inversion principle maintained
 
+---
+
 ## ZenML Monitoring
 
 This project uses ZenML to trigger and monitor the ETL and feature engineering pipelines
 ![ZenML Monitoring](github-media/zenml_monitoring.png)
----
 
 ## Opik (Comet.ml) Monitoring
 
 This project also utilizes a monitoring platform called Opik (by Comet.ML) to monitor the prompts and also LLM outputs
 ![Opik Monitoring](github-media/opik_monitoring.png)
+
+## Qdrant for Vector DB
+This project uses Qdrant to store the vector embeddings, in this case it stores the embedded exhibition descriptions in the vector space for semantic search and RAG:
+![Vector space](github-media/vector_embeddings.png)
+
+---
 
 ## 🚀 Installation
 
