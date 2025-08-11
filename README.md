@@ -6,7 +6,7 @@ An AI-powered gallery recommendation system that curates art exhibitions based o
 ---
 
 ## 📸 Preview
-![Gallery Recommender Architecture](github-media/artomo_architecture.gif)
+[![Watch the walkthrough!](https://img.youtube.com/vi/ZFtNlTuYH44/hqdefault.jpg)](https://youtube.com/shorts/ZFtNlTuYH44?feature=share)
 
 ---
 
