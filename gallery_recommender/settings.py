@@ -16,24 +16,24 @@ class Settings(BaseSettings):
 
     # MongoDB
     DATABASE_HOST: str = "localhost"
-    DATABASE_NAME: str = "gallery"
+    DATABASE_NAME: str = "gallery_demo"
         
-    # Comet
+    # Comet ML (Optional Monitoring)
     COMET_API_KEY: str | None = None
-    COMET_PROJECT: str = "gallery-recommender"
+    COMET_PROJECT: str = "art-gallery-demo"
 
-    # Google API Config
+    # Google Cloud Config (Demo/Development)
     SERVICE_ACCOUNT_FILE: str | None = None
-    SCOPES: list[str] 
-    GCP_PROJECT_ID: str = "artomo"
-    GCP_REGION: str = "asia-northeast1"
-    CLOUD_TASK_QUEUE: str = "gallery-report-queue"
-    CLOUD_RUN_TASK_HANDLER_URL: str = "https://inference-api-525438826675.asia-northeast1.run.app"
+    SCOPES: list[str] = ["https://www.googleapis.com/auth/spreadsheets.readonly"]
+    GCP_PROJECT_ID: str = "your-gcp-project-id"
+    GCP_REGION: str = "us-central1"
+    CLOUD_TASK_QUEUE: str = "demo-task-queue"
+    CLOUD_RUN_TASK_HANDLER_URL: str = "https://your-cloud-run-service.run.app"
 
 
-    # Qdrant vector database
+    # Qdrant vector database (demo configuration)
     USE_QDRANT_CLOUD: bool = False
-    QDRANT_CLOUD_URL: str = ""
+    QDRANT_CLOUD_URL: str = ""  # For cloud: https://your-cluster.qdrant.tech
     QDRANT_APIKEY: str | None = None
     QDRANT_DATABASE_HOST: str = "localhost"
     QDRANT_DATABASE_PORT: int = 6333
@@ -91,6 +91,7 @@ class Settings(BaseSettings):
         except(RuntimeError, KeyError):
             logger.warning("Failed to load settings from ZenML secret store. Loading from .env file...")
             settings = cls()
+            logger.info("Using demo/development settings. For production, configure ZenML secrets.")
 
         return settings
     
@@ -110,7 +111,7 @@ class Settings(BaseSettings):
                 values=env_vars,
             )
         except EntityExistsError:
-            logger.warning("Secret 'scope' already exists. Delete it manually by running 'zenml secret delete settings', before trying to recreate it.")
+            logger.warning("Secret 'settings' already exists. Delete it manually by running 'zenml secret delete settings', before trying to recreate it.")
     
 
 settings = Settings.load_settings()

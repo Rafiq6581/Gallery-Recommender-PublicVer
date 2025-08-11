@@ -9,7 +9,7 @@ settings:
 
 parameters:
     links: 
-      - # insert link to data here
+      - # insert demo data source link here (e.g., public Google Sheet)
     reflections: false
     collection_names:
-      - # insert collection names 
+      - # insert demo collection names 

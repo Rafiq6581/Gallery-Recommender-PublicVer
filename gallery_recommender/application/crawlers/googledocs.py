@@ -3,9 +3,8 @@ import gspread
 from google.oauth2.service_account import Credentials
 from datetime import datetime, time
 import pandas as pd
-import re
 
-from gallery_recommender.domain.data import GalleryData, ExhibitionData, ReflectionData
+from gallery_recommender.domain.data import GalleryData, ExhibitionData
 from .base import BaseCrawler
 from gallery_recommender.settings import settings
 from gallery_recommender.domain.exceptions import ImproperlyConfigured
@@ -32,7 +31,7 @@ class GoogleDocsCrawler(BaseCrawler):
         # Connect to Google Sheets
         client = gspread.authorize(creds)
         print(link)
-        # sheet_name = "Testing Art Gallery"
+        # sheet_name = "Demo Art Gallery Data"
         sheet = client.open_by_url(link)
         sheet = sheet.get_worksheet(0)
         # sheet = client.open_by_url(link).worksheet(sheet_name)

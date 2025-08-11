@@ -1,9 +1,9 @@
 [tool.poetry]
-name = "gallery-recommender"
+name = "art-gallery-recommender"
 version = "0.1.0"
-description = "This project is to explore ways to improve the inference of an app called Artomo"
-authors = ["rafiqrosman <rafiqrosmann@gmail.com>"]
-license = "LICENSE"
+description = "AI-powered art gallery recommendation system using RAG and vector search - Demo Version"
+authors = ["Demo Author <demo@example.com>"]
+license = "MIT"
 readme = "README.md"
 
 [tool.poetry.dependencies]
@@ -80,15 +80,16 @@ build-backend = "poetry.core.masonry.api"
 [tool.poe.tasks]
 
 # Data pipelines
-run-digital-data-etl-artomo = "poetry run python -m tools.run --run-etl --no-cache --etl-config-filename digital_data_etl_artomo.yaml"
+run-digital-data-etl-demo = "poetry run python -m tools.run --run-etl --no-cache --etl-config-filename digital_data_etl_artomo.yaml"
 run-feature-engineering-pipeline = "poetry run python -m tools.run --no-cache --run-feature-engineering"
 run-end-to-end-data-pipeline = "poetry run python -m tools.run --no-cache --run-end-to-end-data --etl-config-filename digital_data_etl_artomo.yaml"
+run-demo-pipeline = "poetry run python -m tools.run --demo-mode --run-etl --etl-config-filename digital_data_etl_artomo.yaml"
 
 #Inference
 run-inference-ml-service = "poetry run uvicorn tools.ml_service:app --host 0.0.0.0 --port 8000 --reload"
 run-data-service = "poetry run uvicorn tools.data_service:app --host 0.0.0.0 --port 8001 --reload"
 call-rag-retrieval-module = "poetry run python -m tools.rag"
-run-inference-ml-service-chatgpt = "poetry run python -m tools.chatgpt_service --query 'Recommend me a gallery for a date night' --k 5 --filter area ROPPONGI"
+run-inference-ml-service-chatgpt = "poetry run python -m tools.chatgpt_service --query 'Recommend me a gallery for a relaxing afternoon' --k 5 --filter area DOWNTOWN"
 
 # Infrastructure
 ## Local infrastructure

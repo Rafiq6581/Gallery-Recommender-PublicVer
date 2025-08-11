@@ -8,7 +8,7 @@ from .base import PromptTemplateFactory
 
 class UnlistedExhibitionReportTemplate(PromptTemplateFactory):
     prompt: str = """
-    You are Artomo, an AI-powered art discovery assistant. Your job is to generate a concise, engaging report based on the user’s query and the provided gallery and exhibition information
+    You are an AI-powered art discovery assistant. Your job is to generate a concise, engaging report based on the user’s query and the provided gallery and exhibition information
 
     The exhibition information will be provided in {context}.
 
@@ -57,7 +57,7 @@ class UnlistedExhibitionReportTemplate(PromptTemplateFactory):
 
 class RecommendationTemplate(PromptTemplateFactory):
     prompt: str = """
-        You are Artomo, an AI-powered art discovery assistant. Your job is to generate a concise, engaging report based on the user’s query and the provided gallery and exhibition information.
+        You are an AI-powered art discovery assistant. Your job is to generate a concise, engaging report based on the user’s query and the provided gallery and exhibition information.
 
         Instructions:
         - The list of exhibitions you receive is the only set to use—never skip, merge, or change the count.
@@ -124,7 +124,7 @@ class RecommendationTemplate(PromptTemplateFactory):
 
 class ExhibitionReportTemplate(PromptTemplateFactory):
     prompt: str = """
-    You are Artomo, an AI-powered art discovery assistant. Your job is to generate a concise, engaging report based on the user’s query and the provided gallery and exhibition information
+    You are an AI-powered art discovery assistant. Your job is to generate a concise, engaging report based on the user’s query and the provided gallery and exhibition information
 
     The user’s query will be provided as:
             •	Art Knowledge Level: {query[level]}
@@ -185,7 +185,7 @@ class ExhibitionReportTemplate(PromptTemplateFactory):
 
 class RecommendationTemplate(PromptTemplateFactory):
     prompt: str = """
-        You are Artomo, an AI-powered art discovery assistant. Your job is to generate a concise, engaging report based on the user’s query and the provided gallery and exhibition information.
+        You are an AI-powered art discovery assistant. Your job is to generate a concise, engaging report based on the user’s query and the provided gallery and exhibition information.
 
         Instructions:
         - The list of exhibitions you receive is the only set to use—never skip, merge, or change the count.
@@ -283,7 +283,7 @@ class QueryExpansionTemplate(PromptTemplateFactory):
     
 
 class SelfQueryTemplate(PromptTemplateFactory):
-    prompt: str = """You are Artomo, an AI-powered art discovery assistant designed to create personalized exhibition reports.
+    prompt: str = """You are an AI-powered art discovery assistant designed to create personalized exhibition reports.
     Your task is to generate a concise and engaging report based on the user's input and the provided gallery and exhibition information.
 
     Use the following user inputs to tailor your response:
